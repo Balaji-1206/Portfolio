@@ -1,0 +1,25 @@
+{% extends "admin/base.html" %}
+{% block title %}{{ 'Edit' if action == 'edit' else 'New' }} Knowledge{% endblock %}
+{% block page_title %}{{ 'Edit' if action == 'edit' else 'Add' }} Knowledge Item{% endblock %}
+{% block content %}
+<div class="admin-form-wrap">
+  <form method="POST" class="admin-form">
+    <div class="form-group">
+      <label>Category</label>
+      <input type="text" name="category" value="{{ item.category or '' }}" placeholder="e.g. general, skills, availability">
+    </div>
+    <div class="form-group">
+      <label>Question</label>
+      <input type="text" name="question" value="{{ item.question or '' }}" required placeholder="e.g. Are you available for freelance?">
+    </div>
+    <div class="form-group">
+      <label>Answer</label>
+      <textarea name="answer" rows="5" required placeholder="The AI will use this answer when asked this question...">{{ item.answer or '' }}</textarea>
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="btn-primary">{{ 'Update' if action == 'edit' else 'Add' }} Item</button>
+      <a href="{{ url_for('admin.knowledge') }}" class="btn-outline">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

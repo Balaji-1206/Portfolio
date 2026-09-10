@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Skills{% endblock %}
+{% block content %}
+<section class="page-section skills-section">
+  <div class="section-header">
+    <span class="section-tag">Expertise</span>
+    <h2>Skills & Certifications</h2>
+  </div>
+
+  {% if categories %}
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    {% for cat in categories %}
+    <button class="filter-btn" data-filter="{{ cat }}">{{ cat }}</button>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if skills %}
+  <div class="skills-grid" id="skillsGrid">
+    {% for skill in skills %}
+    <div class="skill-card" data-category="{{ skill.category or 'General' }}">
+      <div class="skill-img-wrap">
+        {% if skill.image_url %}
+        <img src="{{ skill.image_url }}" alt="{{ skill.name }}" loading="lazy">
+        {% else %}
+        <div class="skill-img-placeholder">{{ skill.name[:2].upper() }}</div>
+        {% endif %}
+      </div>
+      <div class="skill-info">
+        <h3>{{ skill.name }}</h3>
+        <span class="skill-category">{{ skill.category or 'General' }}</span>
+        {% if skill.description %}
+        <p>{{ skill.description }}</p>
+        {% endif %}
+        {% if skill.certification_name %}
+        <a href="{{ skill.certification_url or '#' }}" target="_blank" class="cert-badge">
+          🏆 {{ skill.certification_name }}
+        </a>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="empty-state">No skills added yet.</div>
+  {% endif %}
+</section>
+{% endblock %}
+{% block extra_js %}
+<script>
+  const btns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.skill-card');
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      cards.forEach(c => {
+        c.style.display = (f === 'all' || c.dataset.category === f) ? '' : 'none';
+      });
+    });
+  });
+</script>
+{% endblock %}

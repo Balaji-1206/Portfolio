@@ -1,0 +1,58 @@
+{% extends "admin/base.html" %}
+{% block title %}{{ 'Edit' if action == 'edit' else 'New' }} Project{% endblock %}
+{% block page_title %}{{ 'Edit' if action == 'edit' else 'Add' }} Project{% endblock %}
+{% block content %}
+<div class="admin-form-wrap">
+  <form method="POST" class="admin-form">
+    <div class="form-group">
+      <label>Project Title *</label>
+      <input type="text" name="title" value="{{ project.title or '' }}" required>
+    </div>
+    <div class="form-group">
+      <label>Banner Image URL (16:9 ratio recommended)</label>
+      <input type="url" name="image_url" value="{{ project.image_url or '' }}" placeholder="https://...">
+      {% if project.image_url %}
+      <img src="{{ project.image_url }}" alt="preview" class="img-preview wide-preview">
+      {% endif %}
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea name="description" rows="5" placeholder="Describe the project...">{{ project.description or '' }}</textarea>
+    </div>
+    <div class="form-group">
+      <label>Tech Stack (comma-separated)</label>
+      <input type="text" name="tech_stack" value="{{ project.tech_stack or '' }}" placeholder="React, Node.js, PostgreSQL">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Live URL (optional)</label>
+        <input type="url" name="live_url" value="{{ project.live_url or '' }}" placeholder="https://...">
+      </div>
+      <div class="form-group">
+        <label>GitHub URL (optional)</label>
+        <input type="url" name="github_url" value="{{ project.github_url or '' }}" placeholder="https://github.com/...">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Demo Video URL (optional)</label>
+      <input type="url" name="video_url" value="{{ project.video_url or '' }}" placeholder="https://youtube.com/...">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Sort Order</label>
+        <input type="number" name="sort_order" value="{{ project.sort_order or 0 }}" min="0">
+      </div>
+      <div class="form-group" style="justify-content:flex-end;padding-top:1.8rem;">
+        <label class="checkbox-label">
+          <input type="checkbox" name="featured" {% if project.featured %}checked{% endif %}>
+          Mark as Featured
+        </label>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="btn-primary">{{ 'Update Project' if action == 'edit' else 'Add Project' }}</button>
+      <a href="{{ url_for('admin.projects') }}" class="btn-outline">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

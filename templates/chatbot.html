@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% block title %}AI Chat{% endblock %}
+{% block content %}
+<section class="page-section chatbot-section">
+  <div class="section-header">
+    <span class="section-tag">Powered by Grok</span>
+    <h2>Ask Me Anything</h2>
+    <p class="section-sub">I'm an AI trained on this portfolio. Ask about skills, projects, or how to get in touch.</p>
+  </div>
+
+  <div class="chat-container">
+    <div class="chat-header">
+      <div class="chat-avatar">
+        <span>AI</span>
+        <div class="avatar-pulse"></div>
+      </div>
+      <div class="chat-meta">
+        <strong>Portfolio Assistant</strong>
+        <span class="chat-status">Online</span>
+      </div>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg assistant">
+        <div class="msg-bubble">
+          👋 Hi! I'm the AI assistant for this portfolio. I can answer questions about skills, projects, experience, and how to get in touch. What would you like to know?
+        </div>
+        <div class="msg-time">Now</div>
+      </div>
+    </div>
+
+    <div class="chat-suggestions" id="chatSuggestions">
+      <button class="suggestion-chip" onclick="sendSuggestion(this)">What are your skills?</button>
+      <button class="suggestion-chip" onclick="sendSuggestion(this)">Tell me about your projects</button>
+      <button class="suggestion-chip" onclick="sendSuggestion(this)">How can I contact you?</button>
+      <button class="suggestion-chip" onclick="sendSuggestion(this)">Are you open to work?</button>
+    </div>
+
+    <div class="chat-input-area">
+      <textarea id="chatInput" placeholder="Ask something..." rows="1" onkeydown="handleKey(event)"></textarea>
+      <button id="sendBtn" onclick="sendMessage()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+const history = [];
+
+function getTime() {
+  return new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+}
+
+function appendMessage(role, text) {
+  const box = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = `chat-msg ${role}`;
+  div.innerHTML = `<div class="msg-bubble">${text.replace(/\n/g,'<br>')}</div><div class="msg-time">${getTime()}</div>`;
+  box.appendChild(div);
+  box.scrollTop = box.scrollHeight;
+}
+
+function appendTyping() {
+  const box = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'chat-msg assistant typing-indicator';
+  div.id = 'typingDot';
+  div.innerHTML = `<div class="msg-bubble"><span></span><span></span><span></span></div>`;
+  box.appendChild(div);
+  box.scrollTop = box.scrollHeight;
+}
+
+function removeTyping() {
+  const el = document.getElementById('typingDot');
+  if (el) el.remove();
+}
+
+async function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  document.getElementById('chatSuggestions').style.display = 'none';
+  appendMessage('user', msg);
+  history.push({ role: 'user', content: msg });
+  input.value = '';
+  input.style.height = 'auto';
+  document.getElementById('sendBtn').disabled = true;
+  appendTyping();
+
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: msg, history: history.slice(-10) })
+    });
+    const data = await res.json();
+    removeTyping();
+    const reply = data.reply || 'Sorry, I could not process that.';
+    appendMessage('assistant', reply);
+    history.push({ role: 'assistant', content: reply });
+  } catch (e) {
+    removeTyping();
+    appendMessage('assistant', 'Network error. Please try again.');
+  }
+  document.getElementById('sendBtn').disabled = false;
+}
+
+function sendSuggestion(btn) {
+  document.getElementById('chatInput').value = btn.textContent;
+  sendMessage();
+}
+
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+}
+
+// Auto-resize textarea
+document.getElementById('chatInput').addEventListener('input', function() {
+  this.style.height = 'auto';
+  this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+});
+</script>
+{% endblock %}

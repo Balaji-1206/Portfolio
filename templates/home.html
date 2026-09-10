@@ -1,0 +1,330 @@
+{% extends "base.html" %}
+{% block title %}{{ home.name or 'Balaji P' }} – Software Developer &amp; AI/ML Engineer{% endblock %}
+
+{% block content %}
+<!-- ── HERO SECTION ──────────────────────── -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="hero-orb orb1"></div>
+    <div class="hero-orb orb2"></div>
+    <div class="hero-orb orb3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-greeting">{{ home.greeting or "Hello, I'm" }}</div>
+    <h1 class="hero-name">{{ home.name or 'Balaji P' }}</h1>
+    <div class="hero-title-wrap">
+      <span class="hero-title" id="typedTitle">{{ home.title or 'Software Developer & AI/ML Engineer' }}</span>
+      <span class="cursor">|</span>
+    </div>
+    <p class="hero-subtitle">{{ home.subtitle or 'Building scalable web applications, high-performance backends, and intelligent Agentic AI & RAG systems.' }}</p>
+    <div class="hero-collab">
+      <span class="collab-dot"></span>
+      {{ home.collab_text or 'Open to engineering opportunities & collaborations' }}
+    </div>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">{{ home.cta_text or 'View My Work' }}</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
+    </div>
+  </div>
+  <a href="#about" class="hero-scroll" id="heroScrollBtn" aria-label="Scroll down to About section">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </a>
+</section>
+
+<!-- ── STATS ROW ─────────────────────────── -->
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-num">700+</div>
+      <div class="stat-label">LeetCode Problems Solved</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">8.47</div>
+      <div class="stat-label">B.E. CGPA (CIT Chennai)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">2x</div>
+      <div class="stat-label">AI &amp; Full Stack Internships</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">4+</div>
+      <div class="stat-label">Production AI &amp; Full Stack Systems</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── ABOUT SECTION ─────────────────────── -->
+<section class="page-section about-section" id="about">
+  <div class="section-header">
+    <span class="section-tag">Background</span>
+    <h2>{{ about.bio_title or 'Engineering Scalable & Intelligent Systems' }}</h2>
+    <p class="section-sub">A glance into my journey, engineering philosophy, and technical focus.</p>
+  </div>
+  <div class="about-layout">
+    <div class="about-image-wrap">
+      <div class="about-img-frame shape-{{ about.image_shape or 'circle' }}">
+        {% if about.image_url %}
+        <img src="{{ about.image_url }}" alt="{{ home.name or 'Balaji P' }}" loading="lazy">
+        {% else %}
+        <div class="about-placeholder">Balaji P</div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="bio-content">{{ about.bio }}</div>
+      {% if about.resume_link %}
+      <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="{{ about.resume_link }}" target="_blank" class="btn-primary">View / Download Resume ↓</a>
+        <a href="#experience" class="btn-outline">View Experience</a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE & ACHIEVEMENTS SECTION ──── -->
+<section class="page-section" id="experience">
+  <div class="section-header">
+    <span class="section-tag">Trajectory</span>
+    <h2>Experience &amp; Achievements</h2>
+    <p class="section-sub">Hands-on industry internships, education, and competitive milestones.</p>
+  </div>
+
+  <div class="experience-layout">
+    <!-- Left: Experience & Education -->
+    <div class="timeline-block">
+      <h3>💼 Professional Experience</h3>
+      
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <span class="timeline-role">Generative AI Intern</span>
+          <span class="timeline-date">Apr 2026 – Jul 2026</span>
+        </div>
+        <div class="timeline-org">National Institute of Technology, Puducherry · Puducherry, India</div>
+        <ul class="timeline-desc">
+          <li>Developed an oncology-focused <strong>Agentic RAG system</strong> for evidence-based clinical question answering using medical literature and guidelines.</li>
+          <li>Engineered document processing, semantic chunking, hybrid retrieval (BM25 + FAISS), MRL embeddings, and MedGemma reranking pipelines.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <span class="timeline-role">Full Stack Developer Intern</span>
+          <span class="timeline-date">Nov 2025 – Dec 2025</span>
+        </div>
+        <div class="timeline-org">WebDevSoft Online · Remote</div>
+        <ul class="timeline-desc">
+          <li>Developed responsive full-stack web applications using React.js, Node.js, Express.js, and MongoDB.</li>
+          <li>Built and integrated secure RESTful APIs for authentication, state management, and reusable UI components.</li>
+        </ul>
+      </div>
+
+      <h3 style="margin-top: 2rem;">🎓 Education</h3>
+      
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <span class="timeline-role">B.E. Computer Science &amp; Engineering</span>
+          <span class="timeline-date">2024 – 2028</span>
+        </div>
+        <div class="timeline-org">Chennai Institute of Technology · CGPA: 8.47 / 10</div>
+        <p class="timeline-desc">Focus on Data Structures &amp; Algorithms, Operating Systems, DBMS, Networks, and Artificial Intelligence.</p>
+      </div>
+
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <span class="timeline-role">Higher Secondary School</span>
+          <span class="timeline-date">2021 – 2024</span>
+        </div>
+        <div class="timeline-org">Sathya Saai Matriculation Higher Secondary School · Cutoff: 194.5 / 200</div>
+      </div>
+    </div>
+
+    <!-- Right: Achievements & Certifications -->
+    <div class="timeline-block">
+      <h3>🏆 Hackathons &amp; Achievements</h3>
+
+      <div class="achievement-badge">
+        <span class="achievement-icon">⚡</span>
+        <div class="achievement-text"><strong>Finalist</strong> — Hacksagon Hackathon 2026</div>
+      </div>
+
+      <div class="achievement-badge">
+        <span class="achievement-icon">🤖</span>
+        <div class="achievement-text"><strong>Finalist</strong> — Nasscomm Agentic AI Hackathon 2025</div>
+      </div>
+
+      <div class="achievement-badge">
+        <span class="achievement-icon">🏅</span>
+        <div class="achievement-text"><strong>10th Place</strong> among 3,000 participants in Codathon at Chennai Institute of Technology</div>
+      </div>
+
+      <div class="achievement-badge">
+        <span class="achievement-icon">🔥</span>
+        <div class="achievement-text"><strong>700+ Problems Solved</strong> on LeetCode across Data Structures &amp; Algorithms</div>
+      </div>
+
+      <h3 style="margin-top: 2.25rem;">📜 Verified Certifications</h3>
+      
+      <div class="achievement-badge">
+        <span class="achievement-icon">☁️</span>
+        <div class="achievement-text"><strong>AWS:</strong> Cloud Practitioner Essentials</div>
+      </div>
+
+      <div class="achievement-badge">
+        <span class="achievement-icon">⚙️</span>
+        <div class="achievement-text"><strong>ServiceNow:</strong> AI Foundation</div>
+      </div>
+
+      <div class="achievement-badge">
+        <span class="achievement-icon">🌐</span>
+        <div class="achievement-text"><strong>Cisco Networking Academy:</strong> CCNA 1 — Introduction to Networks</div>
+      </div>
+
+      <div class="achievement-badge">
+        <span class="achievement-icon">📊</span>
+        <div class="achievement-text"><strong>NPTEL:</strong> Data Analytics with Python · Introduction to IoT</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SKILLS SECTION ────────────────────── -->
+<section class="page-section skills-section" id="skills">
+  <div class="section-header">
+    <span class="section-tag">Capabilities</span>
+    <h2>Skills &amp; Technologies</h2>
+    <p class="section-sub">Core toolsets, frameworks, and engineering competencies.</p>
+  </div>
+  {% if categories %}
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    {% for cat in categories %}
+    <button class="filter-btn" data-filter="{{ cat }}">{{ cat }}</button>
+    {% endfor %}
+  </div>
+  {% endif %}
+  <div class="skills-grid">
+    {% for skill in skills %}
+    <div class="skill-card" data-category="{{ skill.category or 'General' }}">
+      <div class="skill-img-wrap">
+        {% if skill.image_url %}
+        <img src="{{ skill.image_url }}" alt="{{ skill.name }}" loading="lazy">
+        {% else %}
+        <div class="skill-img-placeholder">{{ skill.name[:2] }}</div>
+        {% endif %}
+      </div>
+      <div class="skill-info">
+        <span class="skill-category">{{ skill.category or 'General' }}</span>
+        <h3>{{ skill.name }}</h3>
+        {% if skill.description %}<p>{{ skill.description }}</p>{% endif %}
+        {% if skill.certification_name %}
+        <span class="cert-badge">🏅 {{ skill.certification_name }}</span>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ── PROJECTS SECTION ──────────────────── -->
+<section class="page-section projects-section" id="projects">
+  <div class="section-header">
+    <span class="section-tag">Portfolio</span>
+    <h2>Featured Projects</h2>
+    <p class="section-sub">Highlighting selected applications, Agentic AI systems, and platforms I have engineered.</p>
+  </div>
+  <div class="projects-grid">
+    {% for project in projects %}
+    <div class="project-card">
+      <div class="project-img-wrap">
+        {% if project.image_url %}
+        <img src="{{ project.image_url }}" alt="{{ project.title }}" loading="lazy">
+        {% else %}
+        <div class="project-img-placeholder">{{ project.title[:2] }}</div>
+        {% endif %}
+        {% if project.featured %}<span class="featured-badge">Featured</span>{% endif %}
+      </div>
+      <div class="project-body">
+        <h3>{{ project.title }}</h3>
+        {% if project.description %}<p>{{ project.description }}</p>{% endif %}
+        {% if project.tech_list %}
+        <div class="tech-tags">
+          {% for t in project.tech_list %}<span class="tech-tag">{{ t }}</span>{% endfor %}
+        </div>
+        {% endif %}
+        <div class="project-links">
+          {% if project.github_url %}<a href="{{ project.github_url }}" target="_blank" class="proj-link proj-github">GitHub Repo ↗</a>{% endif %}
+          {% if project.live_url %}<a href="{{ project.live_url }}" target="_blank" class="proj-link proj-live">Live Demo ↗</a>{% endif %}
+          {% if project.video_url %}<a href="{{ project.video_url }}" target="_blank" class="proj-link proj-video">Video</a>{% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ── CONTACT SECTION ───────────────────── -->
+<section class="page-section contact-section" id="contact">
+  <div class="section-header">
+    <span class="section-tag">Reach Out</span>
+    <h2>{{ contact.contact_heading or "Let's Connect" }}</h2>
+    <p class="section-sub">{{ contact.contact_subtext or 'Interested in collaborating, discussing engineering roles, or exploring AI systems? Feel free to reach out!' }}</p>
+  </div>
+
+  <div class="contact-layout">
+    <div class="contact-cards">
+      {% if contact.email %}
+      <a href="mailto:{{ contact.email }}" class="contact-card">
+        <div class="contact-icon">✉</div>
+        <div class="contact-detail">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">{{ contact.email }}</span>
+        </div>
+      </a>
+      {% endif %}
+
+      {% if contact.phone %}
+      <a href="tel:{{ contact.phone }}" class="contact-card">
+        <div class="contact-icon">📞</div>
+        <div class="contact-detail">
+          <span class="contact-label">Phone</span>
+          <span class="contact-value">{{ contact.phone }}</span>
+        </div>
+      </a>
+      {% endif %}
+
+      {% if contact.location %}
+      <div class="contact-card">
+        <div class="contact-icon">📍</div>
+        <div class="contact-detail">
+          <span class="contact-label">Location</span>
+          <span class="contact-value">{{ contact.location }}</span>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="social-links">
+      {% if contact.github_url %}
+      <a href="{{ contact.github_url }}" target="_blank" class="social-btn social-github">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.01 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0z"/></svg>
+        GitHub
+      </a>
+      {% endif %}
+      {% if contact.linkedin_url %}
+      <a href="{{ contact.linkedin_url }}" target="_blank" class="social-btn social-linkedin">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM3.56 20.45h3.56V9H3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.27V1.73C24 .77 23.21 0 22.22 0z"/></svg>
+        LinkedIn
+      </a>
+      {% endif %}
+      {% if contact.website_url %}
+      <a href="{{ contact.website_url }}" target="_blank" class="social-btn social-website" title="LeetCode Profile (700+ Solved)">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 4.818 3.664 5.94 5.94 0 0 0 2.443-.29 5.98 5.98 0 0 0 2.026-1.211l3.907-3.909a1.377 1.377 0 0 0 0-1.947 1.378 1.378 0 0 0-1.948 0l-3.908 3.907a3.228 3.228 0 0 1-2.274.945 3.23 3.23 0 0 1-2.276-.945 3.23 3.23 0 0 1-.945-2.274 3.227 3.227 0 0 1 .945-2.275l7.747-7.748a1.375 1.375 0 0 0-.96-2.35zM16.14 9.07a1.377 1.377 0 0 0-.974.405l-2.023 2.025a1.378 1.378 0 0 0 1.948 1.948l2.024-2.025a1.378 1.378 0 0 0-.975-2.353z"/></svg>
+        LeetCode (700+)
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}

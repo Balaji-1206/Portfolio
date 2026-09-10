@@ -1,0 +1,37 @@
+{% extends "admin/base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
+{% block content %}
+<div class="dash-grid">
+  <div class="dash-card">
+    <div class="dash-icon">⚡</div>
+    <div class="dash-num">{{ skills_count }}</div>
+    <div class="dash-label">Skills</div>
+    <a href="{{ url_for('admin.skills') }}" class="dash-action">Manage →</a>
+  </div>
+  <div class="dash-card">
+    <div class="dash-icon">🗂</div>
+    <div class="dash-num">{{ projects_count }}</div>
+    <div class="dash-label">Projects</div>
+    <a href="{{ url_for('admin.projects') }}" class="dash-action">Manage →</a>
+  </div>
+  <div class="dash-card">
+    <div class="dash-icon">🧠</div>
+    <div class="dash-num">{{ knowledge_count }}</div>
+    <div class="dash-label">AI Knowledge Items</div>
+    <a href="{{ url_for('admin.knowledge') }}" class="dash-action">Manage →</a>
+  </div>
+</div>
+
+<div class="dash-quick">
+  <h3>Quick Actions</h3>
+  <div class="quick-links">
+    <a href="{{ url_for('admin.edit_home') }}" class="quick-btn">Edit Home Page</a>
+    <a href="{{ url_for('admin.edit_about') }}" class="quick-btn">Edit About Page</a>
+    <a href="{{ url_for('admin.new_project') }}" class="quick-btn">+ Add Project</a>
+    <a href="{{ url_for('admin.new_skill') }}" class="quick-btn">+ Add Skill</a>
+    <a href="{{ url_for('admin.edit_contact') }}" class="quick-btn">Edit Contact Info</a>
+    <a href="{{ url_for('admin.new_knowledge') }}" class="quick-btn">+ Add AI Knowledge</a>
+  </div>
+</div>
+{% endblock %}

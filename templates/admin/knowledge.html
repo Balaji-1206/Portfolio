@@ -1,0 +1,35 @@
+{% extends "admin/base.html" %}
+{% block title %}Chat Knowledge{% endblock %}
+{% block page_title %}AI Chat Knowledge Base{% endblock %}
+{% block content %}
+<p style="color:var(--text-muted);margin-bottom:1rem;">These Q&A pairs help the AI assistant answer questions about you accurately.</p>
+<div class="table-actions">
+  <a href="{{ url_for('admin.new_knowledge') }}" class="btn-primary">+ Add Knowledge</a>
+</div>
+<div class="admin-table-wrap">
+  {% if items %}
+  <table class="admin-table">
+    <thead>
+      <tr><th>Category</th><th>Question</th><th>Answer</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+      {% for item in items %}
+      <tr>
+        <td><span class="badge">{{ item.category }}</span></td>
+        <td>{{ item.question }}</td>
+        <td><span class="truncate">{{ item.answer[:80] }}{% if item.answer|length > 80 %}...{% endif %}</span></td>
+        <td class="table-actions-cell">
+          <a href="{{ url_for('admin.edit_knowledge', item_id=item.id) }}" class="action-btn edit">Edit</a>
+          <form method="POST" action="{{ url_for('admin.delete_knowledge', item_id=item.id) }}" onsubmit="return confirm('Delete?')">
+            <button type="submit" class="action-btn delete">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="empty-state">No knowledge items yet. <a href="{{ url_for('admin.new_knowledge') }}">Add one →</a></div>
+  {% endif %}
+</div>
+{% endblock %}

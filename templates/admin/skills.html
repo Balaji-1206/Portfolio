@@ -1,0 +1,44 @@
+{% extends "admin/base.html" %}
+{% block title %}Skills{% endblock %}
+{% block page_title %}Skills{% endblock %}
+{% block content %}
+<div class="table-actions">
+  <a href="{{ url_for('admin.new_skill') }}" class="btn-primary">+ Add Skill</a>
+</div>
+<div class="admin-table-wrap">
+  {% if skills %}
+  <table class="admin-table">
+    <thead>
+      <tr><th>Image</th><th>Name</th><th>Category</th><th>Certification</th><th>Order</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+      {% for skill in skills %}
+      <tr>
+        <td>
+          {% if skill.image_url %}
+          <img src="{{ skill.image_url }}" alt="{{ skill.name }}" class="table-thumb square">
+          {% else %}<span class="no-img">—</span>{% endif %}
+        </td>
+        <td><strong>{{ skill.name }}</strong></td>
+        <td><span class="badge">{{ skill.category or 'General' }}</span></td>
+        <td>
+          {% if skill.certification_name %}
+          <span class="cert-small">🏆 {{ skill.certification_name }}</span>
+          {% else %}—{% endif %}
+        </td>
+        <td>{{ skill.sort_order }}</td>
+        <td class="table-actions-cell">
+          <a href="{{ url_for('admin.edit_skill', skill_id=skill.id) }}" class="action-btn edit">Edit</a>
+          <form method="POST" action="{{ url_for('admin.delete_skill', skill_id=skill.id) }}" onsubmit="return confirm('Delete this skill?')">
+            <button type="submit" class="action-btn delete">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="empty-state">No skills yet. <a href="{{ url_for('admin.new_skill') }}">Add one →</a></div>
+  {% endif %}
+</div>
+{% endblock %}

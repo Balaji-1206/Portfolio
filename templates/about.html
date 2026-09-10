@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block title %}About – Balaji P{% endblock %}
+{% block content %}
+<section class="page-section about-section">
+  <div class="section-header">
+    <span class="section-tag">Who I Am</span>
+    <h2>{{ about.bio_title or 'Engineering Scalable & Intelligent Systems' }}</h2>
+    <p class="section-sub">A glance into my background, technical interests, and focus areas.</p>
+  </div>
+  <div class="about-layout">
+    <div class="about-image-wrap">
+      {% if about.image_url %}
+      <div class="about-img-frame shape-{{ about.image_shape or 'circle' }}">
+        <img src="{{ about.image_url }}" alt="Balaji P" loading="lazy">
+      </div>
+      {% else %}
+      <div class="about-img-frame shape-circle about-placeholder">
+        <span>Balaji P</span>
+      </div>
+      {% endif %}
+    </div>
+    <div class="about-text">
+      <div class="bio-content">{{ about.bio or 'No bio added yet.' }}</div>
+      {% if about.resume_link %}
+      <a href="{{ about.resume_link }}" target="_blank" class="btn-primary" style="margin-top:2rem;display:inline-block;">
+        View / Download Resume ↗
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- Experience & Education on About Page -->
+<section class="page-section" style="padding-top: 0;">
+  <div class="section-header">
+    <span class="section-tag">Career &amp; Learning</span>
+    <h2>Experience &amp; Education</h2>
+  </div>
+  <div class="experience-layout">
+    <div class="timeline-block">
+      <h3>💼 Professional Experience</h3>
+      
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <span class="timeline-role">Generative AI Intern</span>
+          <span class="timeline-date">Apr 2026 – Jul 2026</span>
+        </div>
+        <div class="timeline-org">National Institute of Technology, Puducherry · Puducherry, India</div>
+        <ul class="timeline-desc">
+          <li>Developed an oncology-focused <strong>Agentic RAG system</strong> for evidence-based clinical question answering.</li>
+          <li>Engineered document processing, semantic chunking, hybrid retrieval (BM25 + FAISS), MRL embeddings, and MedGemma reranking.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <span class="timeline-role">Full Stack Developer Intern</span>
+          <span class="timeline-date">Nov 2025 – Dec 2025</span>
+        </div>
+        <div class="timeline-org">WebDevSoft Online · Remote</div>
+        <ul class="timeline-desc">
+          <li>Developed responsive web applications using React.js, Node.js, Express.js, and MongoDB.</li>
+          <li>Built and integrated secure RESTful APIs for authentication, state management, and reusable UI components.</li>
+        </ul>
+      </div>
+
+      <h3 style="margin-top: 2rem;">🎓 Education</h3>
+      
+      <div class="timeline-card">
+        <div class="timeline-header">
+          <span class="timeline-role">B.E. Computer Science &amp; Engineering</span>
+          <span class="timeline-date">2024 – 2028</span>
+        </div>
+        <div class="timeline-org">Chennai Institute of Technology · CGPA: 8.47 / 10</div>
+        <p class="timeline-desc">Core coursework: Data Structures &amp; Algorithms, Operating Systems, DBMS, Networks, and AI/ML.</p>
+      </div>
+    </div>
+
+    <div class="timeline-block">
+      <h3>🏆 Hackathons &amp; Honors</h3>
+
+      <div class="achievement-badge">
+        <span class="achievement-icon">⚡</span>
+        <div class="achievement-text"><strong>Finalist</strong> — Hacksagon Hackathon 2026</div>
+      </div>
+
+      <div class="achievement-badge">
+        <span class="achievement-icon">🤖</span>
+        <div class="achievement-text"><strong>Finalist</strong> — Nasscomm Agentic AI Hackathon 2025</div>
+      </div>
+
+      <div class="achievement-badge">
+        <span class="achievement-icon">🏅</span>
+        <div class="achievement-text"><strong>10th Place</strong> among 3,000 participants in Codathon at Chennai Institute of Technology</div>
+      </div>
+
+      <div class="achievement-badge">
+        <span class="achievement-icon">🔥</span>
+        <div class="achievement-text"><strong>700+ Problems Solved</strong> on LeetCode across Data Structures &amp; Algorithms</div>
+      </div>
+
+      <h3 style="margin-top: 2.25rem;">📜 Certifications</h3>
+      
+      <div class="achievement-badge">
+        <span class="achievement-icon">☁️</span>
+        <div class="achievement-text"><strong>AWS:</strong> Cloud Practitioner Essentials</div>
+      </div>
+
+      <div class="achievement-badge">
+        <span class="achievement-icon">⚙️</span>
+        <div class="achievement-text"><strong>ServiceNow:</strong> AI Foundation</div>
+      </div>
+
+      <div class="achievement-badge">
+        <span class="achievement-icon">🌐</span>
+        <div class="achievement-text"><strong>Cisco Networking Academy:</strong> CCNA 1 — Introduction to Networks</div>
+      </div>
+
+      <div class="achievement-badge">
+        <span class="achievement-icon">📊</span>
+        <div class="achievement-text"><strong>NPTEL:</strong> Data Analytics with Python · Introduction to IoT</div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

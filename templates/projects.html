@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Projects{% endblock %}
+{% block content %}
+<section class="page-section projects-section">
+  <div class="section-header">
+    <span class="section-tag">Portfolio</span>
+    <h2>My Projects</h2>
+  </div>
+  {% if projects %}
+  <div class="projects-grid">
+    {% for project in projects %}
+    <div class="project-card">
+      <div class="project-img-wrap">
+        {% if project.image_url %}
+        <img src="{{ project.image_url }}" alt="{{ project.title }}" loading="lazy">
+        {% else %}
+        <div class="project-img-placeholder">{{ project.title[:2].upper() }}</div>
+        {% endif %}
+        {% if project.featured %}
+        <span class="featured-badge">Featured</span>
+        {% endif %}
+      </div>
+      <div class="project-body">
+        <h3>{{ project.title }}</h3>
+        {% if project.description %}
+        <p>{{ project.description }}</p>
+        {% endif %}
+        {% if project.tech_list %}
+        <div class="tech-tags">
+          {% for tech in project.tech_list %}
+          <span class="tech-tag">{{ tech }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+        <div class="project-links">
+          {% if project.live_url %}
+          <a href="{{ project.live_url }}" target="_blank" class="proj-link proj-live">Live ↗</a>
+          {% endif %}
+          {% if project.github_url %}
+          <a href="{{ project.github_url }}" target="_blank" class="proj-link proj-github">GitHub</a>
+          {% endif %}
+          {% if project.video_url %}
+          <a href="{{ project.video_url }}" target="_blank" class="proj-link proj-video">▶ Video</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="empty-state">No projects added yet.</div>
+  {% endif %}
+</section>
+{% endblock %}

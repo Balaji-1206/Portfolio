@@ -1,0 +1,48 @@
+{% extends "admin/base.html" %}
+{% block title %}{{ 'Edit' if action == 'edit' else 'New' }} Skill{% endblock %}
+{% block page_title %}{{ 'Edit' if action == 'edit' else 'Add' }} Skill{% endblock %}
+{% block content %}
+<div class="admin-form-wrap">
+  <form method="POST" class="admin-form">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Skill Name *</label>
+        <input type="text" name="name" value="{{ skill.name or '' }}" required>
+      </div>
+      <div class="form-group">
+        <label>Category</label>
+        <input type="text" name="category" value="{{ skill.category or '' }}" placeholder="e.g. Frontend, Backend, DevOps">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Icon / Image URL (1:1 ratio recommended)</label>
+      <input type="url" name="image_url" value="{{ skill.image_url or '' }}" placeholder="https://...">
+      {% if skill.image_url %}
+      <img src="{{ skill.image_url }}" alt="preview" class="img-preview square-preview">
+      {% endif %}
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea name="description" rows="4" placeholder="What you know about this skill...">{{ skill.description or '' }}</textarea>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Certification Name (optional)</label>
+        <input type="text" name="certification_name" value="{{ skill.certification_name or '' }}" placeholder="e.g. AWS Certified Developer">
+      </div>
+      <div class="form-group">
+        <label>Certification URL (optional)</label>
+        <input type="url" name="certification_url" value="{{ skill.certification_url or '' }}" placeholder="https://...">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Sort Order</label>
+      <input type="number" name="sort_order" value="{{ skill.sort_order or 0 }}" min="0">
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="btn-primary">{{ 'Update Skill' if action == 'edit' else 'Add Skill' }}</button>
+      <a href="{{ url_for('admin.skills') }}" class="btn-outline">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

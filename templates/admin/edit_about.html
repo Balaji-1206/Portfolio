@@ -1,0 +1,40 @@
+{% extends "admin/base.html" %}
+{% block title %}Edit About{% endblock %}
+{% block page_title %}Edit About Page{% endblock %}
+{% block content %}
+<div class="admin-form-wrap">
+  <form method="POST" class="admin-form">
+    <div class="form-group">
+      <label>Profile Image URL</label>
+      <input type="url" name="image_url" value="{{ about.image_url or '' }}" placeholder="https://...">
+      {% if about.image_url %}
+      <img src="{{ about.image_url }}" alt="preview" class="img-preview">
+      {% endif %}
+    </div>
+    <div class="form-group">
+      <label>Image Display Shape</label>
+      <select name="image_shape">
+        {% for shape in ['circle','square','rectangle','hexagon'] %}
+        <option value="{{ shape }}" {% if about.image_shape == shape %}selected{% endif %}>{{ shape.title() }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Section Title</label>
+      <input type="text" name="bio_title" value="{{ about.bio_title or '' }}">
+    </div>
+    <div class="form-group">
+      <label>Bio / Description</label>
+      <textarea name="bio" rows="8" placeholder="Write about yourself...">{{ about.bio or '' }}</textarea>
+    </div>
+    <div class="form-group">
+      <label>Resume Link (optional)</label>
+      <input type="url" name="resume_link" value="{{ about.resume_link or '' }}" placeholder="https://...">
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="btn-primary">Save Changes</button>
+      <a href="{{ url_for('about.index') }}" target="_blank" class="btn-outline">Preview →</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

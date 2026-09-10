@@ -1,242 +1,150 @@
-# 🗂 Portfolio CMS
+# ⚡ Balaji P — Software Developer & AI/ML Engineer Portfolio
 
-A full-stack, admin-managed portfolio website with an AI chatbot powered by Grok. Built with **Flask**, **Supabase**, and vanilla JS. Every page is fully editable through a secure admin panel — no code changes needed.
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![Flask](https://img.shields.io/badge/Flask-2.3+-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![LeetCode](https://img.shields.io/badge/LeetCode-700+_Solved-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/balaji_1206/)
+[![CGPA](https://img.shields.io/badge/CGPA-8.47_/_10-22c55e?style=for-the-badge)](https://citchennai.edu.in)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/balaji1206)
 
----
-
-## ✨ Features
-
-| Feature | Details |
-|---|---|
-| **Home Page** | Animated hero with name, title, collab badge, CTA buttons |
-| **About Page** | Profile image with shape selector (circle / square / rectangle / hexagon), bio, resume link |
-| **Skills Page** | 1:1 image per skill, category filter, certification badges, descriptions |
-| **Projects Page** | 16:9 banner, tech stack tags, live / GitHub / video links, featured badge |
-| **Contact Page** | Email, phone, location, all major social links |
-| **AI Chat Page** | Grok-powered chatbot trained on your portfolio data |
-| **Admin Panel** | Full CRUD for every page, session-based login, responsive sidebar |
+Personal portfolio and engineering showcase of **Balaji P**, Computer Science and Engineering undergraduate at Chennai Institute of Technology. Built with **Flask**, **SQLite / Supabase**, and **Vanilla JavaScript & CSS** — featuring custom 60fps dynamic visual effects, interactive animations, and zero framework bloat.
 
 ---
 
-## 🗄 Tech Stack
+## 🌟 Highlights & Key Metrics
 
-- **Backend**: Python 3.11 + Flask
-- **Database**: Supabase (PostgreSQL)
-- **AI**: Grok API (`grok-3-latest`)
-- **Deployment**: Render (backend) + Supabase (database)
-- **Fonts**: Syne + DM Sans (Google Fonts)
-- **Styling**: Custom CSS (no frameworks)
+- 💻 **Competitive Programming**: **700+ Data Structures & Algorithms** problems solved on LeetCode across arrays, dynamic programming, graphs, trees, and system design patterns.
+- 🎓 **Education**: B.E. Computer Science & Engineering @ **Chennai Institute of Technology** (2024 – 2028) · **CGPA: 8.47 / 10** · School Cutoff: **194.5 / 200**.
+- 💼 **Industry Internships**:
+  - **Generative AI Intern** @ *National Institute of Technology, Puducherry* (Apr 2026 – Jul 2026) — Engineered an oncology-focused **Agentic RAG clinical decision support system** using hybrid retrieval (BM25 + FAISS), MRL embeddings, and MedGemma reranking.
+  - **Full Stack Developer Intern** @ *WebDevSoft Online* (Nov 2025 – Dec 2025) — Built responsive full-stack applications with React.js, Node.js, Express.js, and MongoDB with secure REST APIs.
+- 🏆 **Hackathons & Competitions**:
+  - **Finalist** — Hacksagon Hackathon 2026
+  - **Finalist** — Nasscomm Agentic AI Hackathon 2025
+  - **10th Place** among 3,000 participants in Codathon at CIT Chennai
+
+---
+
+## 🚀 Featured Projects
+
+| Project | Tech Stack | Highlights | Links |
+|---|---|---|---|
+| **LeadForge AI** | Fastify, Groq Llama, Redis, BullMQ, TailwindCSS | Autonomous multi-agent B2B lead generation engine with AI scraping, verification, and automated outreach. | [GitHub](https://github.com/Balaji-1206/LeadForge-AI) |
+| **Oncology Agentic RAG** | Python, LangChain, BM25, FAISS, MedGemma | Evidence-based clinical QA engine synthesizing biomedical literature with semantic chunking and reranking. | [GitHub](https://github.com/Balaji-1206) |
+| **LegalAce** | Flask, Supabase, NLP Parsing, Python | AI-powered legal document contract analyzer detecting high-risk clauses and summarizing key obligations. | [GitHub](https://github.com/Balaji-1206/LegalAce) |
+| **SmartCare** | React.js, Node.js, Express.js, MongoDB, WebSockets | Real-time healthcare emergency coordination and patient telemetry monitoring platform. | [GitHub](https://github.com/Balaji-1206/SmartCare) |
+
+---
+
+## ✨ Unique Dynamic Effects
+
+The frontend is crafted in modern Vanilla CSS and JavaScript with performance in mind:
+
+1. **Interactive Neural Network Particle Canvas (60fps)**: Floating nodes in the hero section that gently repel and connect to your cursor via dynamic synapsis lines. Automatically pauses rendering when off-screen.
+2. **Multi-Role Dynamic Typewriter**: Cycles through key technical specializations (*Software Developer*, *AI / ML Engineer*, *Agentic RAG Specialist*, *Full Stack Developer*, *Competitive Programmer*).
+3. **Cyber Grid Background Overlay**: A radial-masked dot matrix grid seamlessly blending into space black.
+4. **Scroll-Driven Cubic Animated Counters**: Numerical stats (`700+`, `8.47`, `2x`, `4+`) smoothly count up when scrolled into view.
+5. **3D Perspective Mouse Tilt**: Interactive 3D depth tilt on project cards and circular profile glow on hover.
+6. **One-Click Quick Copy with Floating Toast**: Instant clipboard copy for contact details with dark-glass checkmark confirmation.
+7. **Top Reading Progress Bar & Scrollspy**: Real-time reading depth bar and active section navbar tracking.
+
+---
+
+## 🛠 Tech Stack
+
+- **Backend**: Python 3.11+, Flask
+- **Database**: Dual Mode — Local SQLite (`local_portfolio.db`) with zero configuration, and Supabase (PostgreSQL) for production cloud deployments
+- **Frontend**: Semantic HTML5, Vanilla CSS3 (Syne & DM Sans typography, dark luxury theme), Vanilla ES6+ JavaScript
+- **DevOps & Tools**: Git, GitHub, Docker, Postman, Linux / Windows
 
 ---
 
 ## 📁 Project Structure
 
 ```
-portfolio/
-├── app.py                  # Flask app entry point
-├── db.py                   # Supabase client
-├── auth_utils.py           # Login decorator & password check
-├── schema.sql              # Run this in Supabase SQL editor
-├── requirements.txt
-├── Procfile                # For Render / Heroku deployment
-├── runtime.txt             # Python version
-├── render.yaml             # One-click Render config
-├── .env.example            # Copy to .env for local dev
-├── .gitignore
+Portfolio/
+├── app.py                  # Flask entry point & global context processors
+├── db.py                   # Hybrid SQLite fallback + Supabase client
+├── auth_utils.py           # Admin auth session decorators
+├── schema.sql              # Database schema & initial seeding
+├── requirements.txt        # Python package dependencies
+├── .env.example            # Environment variables template
+├── .gitignore              # Ignores sensitive keys, venv, and local db
 │
 ├── routes/
-│   ├── __init__.py
-│   ├── auth.py             # /admin/login  /admin/logout
-│   ├── home.py             # /
-│   ├── about.py            # /about
-│   ├── skills.py           # /skills
-│   ├── projects.py         # /projects
-│   ├── contact.py          # /contact
-│   ├── chatbot.py          # /chat  /api/chat
-│   └── admin.py            # /admin/* (all CRUD routes)
+│   ├── auth.py             # Admin login & logout
+│   ├── home.py             # Landing page & section anchors
+│   ├── about.py            # Detailed bio & trajectory
+│   ├── skills.py           # Technical skill competencies & devicon SVGs
+│   ├── projects.py         # Production systems & repositories
+│   ├── contact.py          # Contact information & socials
+│   └── admin.py            # Secure admin CRUD operations
 │
 ├── templates/
-│   ├── base.html           # Public nav, flash messages, footer
-│   ├── login.html          # Admin login page
-│   ├── home.html
-│   ├── about.html
-│   ├── skills.html
-│   ├── projects.html
-│   ├── contact.html
-│   ├── chatbot.html
-│   └── admin/
-│       ├── base.html       # Admin sidebar + topbar
-│       ├── dashboard.html
-│       ├── edit_home.html
-│       ├── edit_about.html
-│       ├── skills.html
-│       ├── edit_skill.html
-│       ├── projects.html
-│       ├── edit_project.html
-│       ├── edit_contact.html
-│       ├── knowledge.html
-│       └── edit_knowledge.html
+│   ├── base.html           # Master layout, progress bar, toast, footer
+│   ├── home.html           # Full dynamic landing page
+│   ├── about.html          # Standalone About page
+│   ├── skills.html         # Standalone Skills page
+│   ├── projects.html       # Standalone Projects page
+│   ├── contact.html        # Standalone Contact page
+│   ├── login.html          # Admin authentication
+│   └── admin/              # Management dashboard templates
 │
 └── static/
     ├── css/
-    │   ├── style.css       # Full design system (dark luxury theme)
-    │   └── admin.css       # Admin panel styles
-    └── js/
-        └── main.js         # Nav toggle, scroll reveal, flash dismiss
+    │   ├── style.css       # Complete design system & dynamic effect styles
+    │   └── admin.css       # Admin dashboard interface styling
+    ├── js/
+    │   └── main.js         # Canvas particles, typewriter, 3D tilt, counters
+    └── img/
+        └── profile.jpg     # Balaji P profile photograph
 ```
 
 ---
 
-## 🚀 Deployment Guide
+## 💻 Local Setup & Running
 
-### Step 1 — Set Up Supabase (Database)
-
-1. Go to [supabase.com](https://supabase.com) → **New Project**
-2. Note your **Project URL** and **anon public key** (Settings → API)
-3. Go to **SQL Editor** → paste the entire contents of `schema.sql` → **Run**
-4. Your tables are ready ✅
-
-### Step 2 — Get a Grok API Key
-
-1. Go to [console.x.ai](https://console.x.ai)
-2. Create an account / sign in
-3. Generate an API key under **API Keys**
-4. Copy the key — you'll add it as an env var
-
-### Step 3 — Deploy to Render (Backend + Frontend)
-
-Render hosts your Flask app for free (with sleep on inactivity on free tier).
-
-1. Push your project to a **GitHub repository**
-
+### 1. Clone the Repository
 ```bash
-git init
-git add .
-git commit -m "Initial portfolio CMS"
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
-git push -u origin main
+git clone https://github.com/Balaji-1206/Portfolio.git
+cd Portfolio
 ```
 
-2. Go to [render.com](https://render.com) → **New** → **Web Service**
-3. Connect your GitHub repo
-4. Render auto-detects the `render.yaml` — just confirm settings
-5. Add these **Environment Variables** in Render dashboard:
-
-| Variable | Value |
-|---|---|
-| `SUPABASE_URL` | `https://xxxx.supabase.co` |
-| `SUPABASE_KEY` | Your Supabase anon key |
-| `ADMIN_PASSWORD` | A strong password you choose |
-| `SECRET_KEY` | Any random 32-char string |
-| `GROK_API_KEY` | Your Grok API key |
-| `FLASK_DEBUG` | `false` |
-
-6. Click **Deploy** — your site will be live at `https://your-app.onrender.com` ✅
-
----
-
-## 💻 Local Development
-
+### 2. Create and Activate Virtual Environment
 ```bash
-# 1. Clone and enter the project
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
-cd portfolio
-
-# 2. Create a virtual environment
+# Windows
 python -m venv venv
-source venv/bin/activate      # Windows: venv\Scripts\activate
+venv\Scripts\activate
 
-# 3. Install dependencies
+# macOS / Linux
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+```bash
 pip install -r requirements.txt
+```
 
-# 4. Set up environment variables
-cp .env.example .env
-# Edit .env and fill in your Supabase URL, key, admin password, etc.
-
-# 5. Run the app
-flask run
-# or
+### 4. Run the Application
+The application automatically seeds an offline SQLite database if Supabase keys are not set:
+```bash
 python app.py
 ```
-
-Visit `http://localhost:5000` in your browser.
-
-**To load env vars automatically**, install python-dotenv (already in requirements) and add this to the top of `app.py` if needed:
-```python
-from dotenv import load_dotenv
-load_dotenv()
-```
+Open **[http://127.0.0.1:5000](http://127.0.0.1:5000)** in your browser to view the portfolio.
 
 ---
 
-## 🔐 Admin Access
+## 📬 Contact & Socials
 
-| URL | Description |
-|---|---|
-| `/admin/login` | Login with your `ADMIN_PASSWORD` |
-| `/admin` | Dashboard — overview + quick actions |
-| `/admin/home` | Edit home page content |
-| `/admin/about` | Edit about page, profile image & shape |
-| `/admin/skills` | List, add, edit, delete skills |
-| `/admin/projects` | List, add, edit, delete projects |
-| `/admin/contact` | Edit contact info & social links |
-| `/admin/knowledge` | Manage AI chatbot knowledge base |
-| `/admin/logout` | End session |
-
----
-
-## 🤖 AI Chatbot Setup
-
-The chatbot uses **Grok** (`grok-3-latest`) and automatically reads your portfolio data (bio, skills, projects, contact info) to answer visitor questions.
-
-**To train it further:**
-1. Login to admin → **AI Chat Knowledge**
-2. Add Q&A pairs like:
-   - Q: `Are you available for freelance work?` → A: `Yes, I'm currently open to freelance projects...`
-   - Q: `What's your rate?` → A: `My rates vary by project scope...`
-3. The chatbot will incorporate all of this in every conversation
-
----
-
-## 🖼 Image Guidelines
-
-All images are referenced by URL (stored in database, not on server):
-
-| Page | Recommended Ratio | Notes |
-|---|---|---|
-| About | Any (shape selected in admin) | Use a high-res portrait |
-| Skills | **1:1 (square)** | Icon-style images work best |
-| Projects | **16:9** | Banner / screenshot of the project |
-
-Use image hosting services like:
-- [Cloudinary](https://cloudinary.com) (free tier)
-- [Imgur](https://imgur.com)
-- [Supabase Storage](https://supabase.com/storage)
-- GitHub raw URLs
-
----
-
-## 🌍 Where Each Service Runs
-
-| Service | Platform | What it does |
-|---|---|---|
-| **Flask App** | Render | Serves all pages, handles admin, calls Grok API |
-| **Database** | Supabase | Stores all content (home, about, skills, projects, contact, chat knowledge) |
-| **AI Chatbot** | Grok API (x.ai) | Answers visitor questions based on portfolio data |
-| **Images** | External URL | You provide image links (Cloudinary, Imgur, etc.) |
-| **Fonts** | Google Fonts CDN | Syne + DM Sans |
-
----
-
-## 🔧 Customisation Tips
-
-- **Change colour theme**: Edit CSS variables in `static/css/style.css` (`:root` block)
-- **Add a new page**: Create a route in `routes/`, a template in `templates/`, register the blueprint in `app.py`
-- **Change AI model**: Edit `GROK_API_URL` and `"model"` field in `routes/chatbot.py`
-- **Extend the DB**: Add columns in Supabase SQL editor and update the relevant admin form
+- **Email**: [balajip.cse2024@citchennai.net](mailto:balajip.cse2024@citchennai.net)
+- **Phone**: [+91 9655018485](tel:+919655018485)
+- **Location**: Chennai, India
+- **GitHub**: [@Balaji-1206](https://github.com/Balaji-1206)
+- **LinkedIn**: [balaji1206](https://linkedin.com/in/balaji1206)
+- **LeetCode**: [balaji_1206](https://leetcode.com/balaji_1206/)
+- **Resume**: [Google Drive Resume](https://drive.google.com/file/d/1bT-WVeauHwH1AXol2_HcPIUWPlYi6SuO/view?usp=drive_link)
 
 ---
 
 ## 📄 License
-
-MIT — free to use, modify, and deploy for personal or commercial portfolios.
+This project is open source and available under the [MIT License](LICENSE).

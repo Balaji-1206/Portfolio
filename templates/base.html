@@ -12,6 +12,8 @@
 </head>
 <body>
 
+<div class="scroll-progress-bar" id="scrollProgressBar"></div>
+
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
     <a href="{{ url_for('home.index') }}" class="nav-logo">BALAJI<span>.</span></a>
@@ -21,6 +23,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="{% if request.endpoint == 'home.index' %}#home{% else %}{{ url_for('home.index') }}{% endif %}" {% if request.endpoint == 'home.index' %}class="active"{% endif %}>Home</a></li>
       <li><a href="{% if request.endpoint == 'home.index' %}#about{% else %}{{ url_for('about.index') }}{% endif %}" {% if request.endpoint == 'about.index' %}class="active"{% endif %}>About</a></li>
+      <li><a href="{% if request.endpoint == 'home.index' %}#experience{% else %}{{ url_for('about.index') }}#experience{% endif %}">Experience</a></li>
       <li><a href="{% if request.endpoint == 'home.index' %}#skills{% else %}{{ url_for('skills.index') }}{% endif %}" {% if request.endpoint == 'skills.index' %}class="active"{% endif %}>Skills</a></li>
       <li><a href="{% if request.endpoint == 'home.index' %}#projects{% else %}{{ url_for('projects.index') }}{% endif %}" {% if request.endpoint == 'projects.index' %}class="active"{% endif %}>Projects</a></li>
       <li><a href="{% if request.endpoint == 'home.index' %}#contact{% else %}{{ url_for('contact.index') }}{% endif %}" {% if request.endpoint == 'contact.index' %}class="active"{% endif %}>Contact</a></li>
@@ -168,6 +171,13 @@
   </svg>
 </a>
 {% endif %}
+
+<!-- Back to Top Button -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20">
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+</button>
 
 </body>
 </html>

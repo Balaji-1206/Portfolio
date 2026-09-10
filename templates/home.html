@@ -5,6 +5,8 @@
 <!-- ── HERO SECTION ──────────────────────── -->
 <section class="hero" id="home">
   <div class="hero-bg">
+    <canvas id="neuralCanvas" class="neural-canvas"></canvas>
+    <div class="hero-grid-pattern"></div>
     <div class="hero-orb orb1"></div>
     <div class="hero-orb orb2"></div>
     <div class="hero-orb orb3"></div>
@@ -13,7 +15,7 @@
     <div class="hero-greeting">{{ home.greeting or "Hello, I'm" }}</div>
     <h1 class="hero-name">{{ home.name or 'Balaji P' }}</h1>
     <div class="hero-title-wrap">
-      <span class="hero-title" id="typedTitle">{{ home.title or 'Software Developer & AI/ML Engineer' }}</span>
+      <span class="hero-title" id="typedTitle" data-roles='["Software Developer", "AI / ML Engineer", "Agentic RAG Specialist", "Full Stack Developer", "Competitive Programmer (700+ LeetCode)"]'>{{ home.title or 'Software Developer & AI/ML Engineer' }}</span>
       <span class="cursor">|</span>
     </div>
     <p class="hero-subtitle">{{ home.subtitle or 'Building scalable web applications, high-performance backends, and intelligent Agentic AI & RAG systems.' }}</p>
@@ -275,23 +277,25 @@
   <div class="contact-layout">
     <div class="contact-cards">
       {% if contact.email %}
-      <a href="mailto:{{ contact.email }}" class="contact-card">
+      <div class="contact-card copyable-card" data-copy="{{ contact.email }}" title="Click to copy email">
         <div class="contact-icon">✉</div>
         <div class="contact-detail">
-          <span class="contact-label">Email</span>
+          <span class="contact-label">Email <span class="copy-hint">(Click to copy)</span></span>
           <span class="contact-value">{{ contact.email }}</span>
         </div>
-      </a>
+        <span class="copy-action-icon">📋</span>
+      </div>
       {% endif %}
 
       {% if contact.phone %}
-      <a href="tel:{{ contact.phone }}" class="contact-card">
+      <div class="contact-card copyable-card" data-copy="{{ contact.phone }}" title="Click to copy phone">
         <div class="contact-icon">📞</div>
         <div class="contact-detail">
-          <span class="contact-label">Phone</span>
+          <span class="contact-label">Phone <span class="copy-hint">(Click to copy)</span></span>
           <span class="contact-value">{{ contact.phone }}</span>
         </div>
-      </a>
+        <span class="copy-action-icon">📋</span>
+      </div>
       {% endif %}
 
       {% if contact.location %}

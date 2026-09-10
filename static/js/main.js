@@ -11,7 +11,7 @@ const updateScrollProgress = () => {
 };
 window.addEventListener('scroll', updateScrollProgress, { passive: true });
 
-// ── NAVBAR SCROLL SHADOW & GLOW ──────────────
+// ── NAVBAR SCROLL SHADOW ─────────────────────
 const navbar = document.getElementById('navbar');
 if (navbar) {
   window.addEventListener('scroll', () => {
@@ -35,18 +35,231 @@ if (backToTopBtn) {
   });
 }
 
-// ── HERO PARALLAX ON SCROLL ──────────────────
-const orb1 = document.querySelector('.orb1');
-const orb2 = document.querySelector('.orb2');
-const orb3 = document.querySelector('.orb3');
-window.addEventListener('scroll', () => {
-  const scrolled = window.scrollY;
-  if (scrolled < 1000) {
-    if (orb1) orb1.style.transform = `translateY(${scrolled * 0.22}px)`;
-    if (orb2) orb2.style.transform = `translateY(${scrolled * -0.16}px)`;
-    if (orb3) orb3.style.transform = `translate(-50%, calc(-50% + ${scrolled * 0.08}px))`;
+// ── AMBIENT CURSOR SPOTLIGHT ─────────────────
+const cursorGlow = document.getElementById('cursorGlow');
+if (cursorGlow && window.innerWidth > 768) {
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let currentX = mouseX;
+  let currentY = mouseY;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  }, { passive: true });
+
+  const renderGlow = () => {
+    currentX += (mouseX - currentX) * 0.12;
+    currentY += (mouseY - currentY) * 0.12;
+    cursorGlow.style.left = `${currentX}px`;
+    cursorGlow.style.top = `${currentY}px`;
+    requestAnimationFrame(renderGlow);
+  };
+  requestAnimationFrame(renderGlow);
+}
+
+// ── INTERACTIVE NEURAL PARTICLES CANVAS ──────
+const canvas = document.getElementById('neuralCanvas');
+if (canvas) {
+  const ctx = canvas.getContext('2d');
+  let width, height;
+  let particles = [];
+  let mouse = { x: null, y: null, radius: 140 };
+
+  const resize = () => {
+    width = canvas.width = canvas.parentElement.offsetWidth;
+    height = canvas.height = canvas.parentElement.offsetHeight;
+  };
+  resize();
+  window.addEventListener('resize', resize);
+
+  window.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    if (e.clientY <= rect.bottom && e.clientY >= rect.top) {
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    } else {
+      mouse.x = null;
+      mouse.y = null;
+    }
+  }, { passive: true });
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.vx = (Math.random() - 0.5) * 0.6;
+      this.vy = (Math.random() - 0.5) * 0.6;
+      this.radius = Math.random() * 1.8 + 1.2;
+    }
+
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+
+      if (this.x < 0 || this.x > width) this.vx *= -1;
+      if (this.y < 0 || this.y > height) this.vy *= -1;
+
+      // Mouse connection & gentle push
+      if (mouse.x !== null && mouse.y !== null) {
+        const dx = mouse.x - this.x;
+        const dy = mouse.y - this.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < mouse.radius) {
+          const force = (mouse.radius - dist) / mouse.radius;
+          this.x -= (dx / dist) * force * 1.2;
+          this.y -= (dy / dist) * force * 1.2;
+        }
+      }
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(245, 166, 35, 0.7)';
+      ctx.fill();
+    }
   }
-}, { passive: true });
+
+  const count = Math.min(Math.floor(width / 26), 45);
+  for (let i = 0; i < count; i++) {
+    particles.push(new Particle());
+  }
+
+  const animate = () => {
+    if (window.scrollY < height + 100) {
+      ctx.clearRect(0, 0, width, height);
+
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 115) {
+            const alpha = (1 - dist / 115) * 0.28;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(245, 166, 35, ${alpha})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+        }
+
+        // Connect to mouse
+        if (mouse.x !== null && mouse.y !== null) {
+          const dx = particles[i].x - mouse.x;
+          const dy = particles[i].y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.radius) {
+            const alpha = (1 - dist / mouse.radius) * 0.45;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = `rgba(255, 107, 53, ${alpha})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+    requestAnimationFrame(animate);
+  };
+  animate();
+}
+
+// ── DYNAMIC MULTI-ROLE TYPEWRITER ───────────
+const typedTitle = document.getElementById('typedTitle');
+if (typedTitle && typedTitle.getAttribute('data-roles')) {
+  try {
+    const roles = JSON.parse(typedTitle.getAttribute('data-roles'));
+    let roleIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+    let currentRole = roles[0];
+
+    const typeSpeed = () => {
+      const currentFull = roles[roleIdx];
+
+      if (isDeleting) {
+        charIdx--;
+        typedTitle.textContent = currentFull.substring(0, charIdx);
+      } else {
+        charIdx++;
+        typedTitle.textContent = currentFull.substring(0, charIdx);
+      }
+
+      let delta = isDeleting ? 40 : 85;
+
+      if (!isDeleting && charIdx === currentFull.length) {
+        delta = 2200; // Pause after typing
+        isDeleting = true;
+      } else if (isDeleting && charIdx === 0) {
+        isDeleting = false;
+        roleIdx = (roleIdx + 1) % roles.length;
+        delta = 450; // Pause before typing next
+      }
+
+      setTimeout(typeSpeed, delta);
+    };
+    setTimeout(typeSpeed, 1000);
+  } catch (_) {}
+}
+
+// ── 3D TILT EFFECT ON PROJECT CARDS ──────────
+if (window.innerWidth > 800) {
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -5;
+      const rotateY = ((x - centerX) / centerX) * 5;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+
+// ── ONE-CLICK COPY TO CLIPBOARD + TOAST ──────
+const copyToast = document.getElementById('copyToast');
+const toastMsg = document.getElementById('toastMsg');
+let toastTimer = null;
+
+const showToast = (text) => {
+  if (copyToast) {
+    if (toastMsg) toastMsg.textContent = text;
+    copyToast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      copyToast.classList.remove('show');
+    }, 2800);
+  }
+};
+
+document.querySelectorAll('.copyable-card[data-copy]').forEach(card => {
+  card.addEventListener('click', (e) => {
+    e.preventDefault();
+    const val = card.getAttribute('data-copy');
+    if (val && navigator.clipboard) {
+      navigator.clipboard.writeText(val).then(() => {
+        showToast(`Copied "${val}" to clipboard!`);
+      }).catch(() => {
+        showToast(`Copied to clipboard!`);
+      });
+    }
+  });
+});
 
 // ── MOBILE NAV TOGGLE ────────────────────────
 const navToggle = document.getElementById('navToggle');
@@ -81,7 +294,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const sections = document.querySelectorAll('section[id]');
 if (sections.length > 1 && navLinks) {
   const onScrollSpy = () => {
-    const scrollPos = window.scrollY + 130;
+    const scrollPos = window.scrollY + 140;
     sections.forEach(sec => {
       const top = sec.offsetTop;
       const height = sec.offsetHeight;
@@ -107,7 +320,6 @@ function animateCount(el, target, duration = 1400, decimals = 0, suffix = '') {
   function update(now) {
     const elapsed = now - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    // Smooth ease-out cubic
     const ease = 1 - Math.pow(1 - progress, 3);
     const current = start + (target - start) * ease;
     el.textContent = current.toFixed(decimals) + suffix;
@@ -158,7 +370,6 @@ if ('IntersectionObserver' in window) {
 
   revealElements.forEach(el => revealObserver.observe(el));
 
-  // Safety fallback: ensure elements become visible if scroll is very fast
   setTimeout(() => {
     revealElements.forEach(el => el.classList.add('revealed'));
   }, 1400);
@@ -193,18 +404,4 @@ if (filterButtons.length && skillCards.length) {
 // ── AUTO-DISMISS FLASH MESSAGES ──────────────
 document.querySelectorAll('.flash').forEach(el => {
   setTimeout(() => el.remove(), 5000);
-});
-
-// ── IMAGE PREVIEW ON URL CHANGE (ADMIN) ──────
-document.querySelectorAll('input[type="url"][name="image_url"]').forEach(input => {
-  input.addEventListener('blur', () => {
-    let preview = input.parentElement.querySelector('.img-preview');
-    if (!preview) {
-      preview = document.createElement('img');
-      preview.className = 'img-preview';
-      input.parentElement.appendChild(preview);
-    }
-    preview.src = input.value;
-    preview.onerror = () => preview.remove();
-  });
 });

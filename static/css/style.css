@@ -944,4 +944,125 @@ main { padding-top: var(--nav-h); }
   box-shadow: 0 10px 30px rgba(0,0,0,0.45), 0 0 18px rgba(245,166,35,0.14);
 }
 
+/* ── NEURAL PARTICLES & CYBER GRID ─────────── */
+.neural-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.hero-grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(245, 166, 35, 0.1) 1.2px, transparent 1.2px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── AMBIENT CURSOR GLOW ───────────────────── */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(245, 166, 35, 0.06), rgba(255, 107, 53, 0.02) 40%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  will-change: transform;
+}
+@media (max-width: 768px) {
+  .cursor-glow { display: none; }
+}
+
+/* ── COPYABLE CONTACT CARDS & TOAST ────────── */
+.copyable-card {
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.copyable-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35), 0 0 15px rgba(245,166,35,0.12);
+}
+.copyable-card:active {
+  transform: translateY(0) scale(0.99);
+}
+.copy-hint {
+  font-size: 0.65rem;
+  color: var(--accent);
+  font-weight: 500;
+  opacity: 0.8;
+  margin-left: 0.3rem;
+  text-transform: none;
+  letter-spacing: normal;
+}
+.copy-action-icon {
+  margin-left: auto;
+  font-size: 1.1rem;
+  opacity: 0.4;
+  transition: all 0.25s ease;
+}
+.copyable-card:hover .copy-action-icon {
+  opacity: 1;
+  transform: scale(1.15);
+  color: var(--accent);
+}
+
+.copy-toast {
+  position: fixed;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(30px);
+  background: #15151f;
+  border: 1px solid var(--accent);
+  color: var(--text);
+  padding: 0.7rem 1.4rem;
+  border-radius: 100px;
+  box-shadow: 0 10px 32px rgba(0,0,0,0.7), 0 0 16px rgba(245,166,35,0.25);
+  z-index: 2500;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  font-weight: 500;
+  font-size: 0.88rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(12px);
+  pointer-events: none;
+}
+.copy-toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+.toast-check {
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+/* ── 3D PROFILE FRAME TILT & GLOW ──────────── */
+.about-img-frame {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+.about-img-frame:hover {
+  transform: scale(1.04) rotate(1deg);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.5), 0 0 30px rgba(245,166,35,0.25);
+}
+
+
 

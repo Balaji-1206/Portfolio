@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Balaji P | Software Developer & AI/ML Engineer</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portfolio of Balaji P – Software Developer & AI/ML Engineer specializing in Agentic RAG, Full Stack Web & Mobile, and High-Throughput Systems." />
+  <meta name="keywords" content="Balaji P, Software Developer, AI/ML Engineer, Agentic RAG, FastAPI, React, LangGraph, Machine Learning, Portfolio" />
+  <meta name="author" content="Balaji P" />
+  <meta name="theme-color" content="#0a0b10" />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Balaji P | Software Developer & AI/ML Engineer" />
+  <meta property="og:description" content="Explore projects, experience, skills, and achievements of Balaji P – Building scalable web apps and intelligent Agentic AI systems." />
+  <meta property="og:image" content="img/profile.jpg" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Premium Overhaul -->
+  <link rel="stylesheet" href="css/premium.css">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Balaji P",
+    "jobTitle": "Software Developer & AI/ML Engineer",
+    "url": "https://github.com/Balaji-1206",
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Chennai Institute of Technology"
+    },
+    "sameAs": [
+      "https://github.com/Balaji-1206",
+      "https://linkedin.com/in/balaji1206",
+      "https://leetcode.com/balaji_1206"
+    ],
+    "knowsAbout": ["Python", "FastAPI", "Agentic RAG", "LangGraph", "React.js", "C++", "Machine Learning"]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ── PAGE INTRO LOADER ───────────────────────── -->
+  <div class="page-intro" id="pageIntro" aria-hidden="true">
+    <div class="intro-content">
+      <div class="intro-logo">BALAJI<span>.</span></div>
+      <div class="intro-bar"><div class="intro-bar-fill" id="introBarFill"></div></div>
+      <div class="intro-label">Loading portfolio…</div>
+    </div>
+  </div>
+
+  <!-- ── CUSTOM CURSOR ───────────────────────────── -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- ── FLOATING HIRE ME BADGE ──────────────────── -->
+  <a href="#contact" class="hire-me-badge" id="hireMeBadge" aria-label="Available for hire - Contact me">
+    <span class="hire-me-inner">
+      <span class="hire-pulse"></span>
+      <span class="hire-text">Hire Me</span>
+    </span>
+  </a>
+
+  <!-- Ambient Cursor Spotlight & Progress Bar -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+  <div class="copy-toast" id="copyToast">
+    <span class="toast-check">✓</span> 
+    <span id="toastMsg">Copied to clipboard!</span>
+  </div>
+
+  <!-- ── HEADER & NAVIGATION ────────────────────────── -->
+  <header>
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="#home" class="nav-logo" aria-label="Balaji P Homepage">BALAJI<span>.</span></a>
+        
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ── HERO SECTION ────────────────────────────── -->
+    <section class="hero" id="home">
+      <div class="hero-bg">
+        <canvas id="neuralCanvas" class="neural-canvas"></canvas>
+        <div class="hero-grid-pattern"></div>
+        <div class="hero-orb orb1"></div>
+        <div class="hero-orb orb2"></div>
+        <div class="hero-orb orb3"></div>
+        <div class="hero-orb orb4"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-status-pill">
+          <span class="radar-dot">
+            <span class="radar-ring"></span>
+          </span>
+          <span>Available for Engineering Opportunities &amp; AI Roles</span>
+        </div>
+
+        <div class="hero-greeting">Hello, I'm</div>
+        <h1 class="hero-name" id="heroName">Balaji P</h1>
+        <div class="hero-title-wrap">
+          <span class="hero-title" id="typedTitle" data-roles='["Software Developer", "AI / ML Engineer", "Agentic RAG Specialist", "Full Stack Developer", "Competitive Programmer (700+ LeetCode)"]'>Software Developer &amp; AI/ML Engineer</span>
+          <span class="cursor">|</span>
+        </div>
+        <p class="hero-subtitle">Building scalable web applications, high-performance backends, and intelligent Agentic AI &amp; RAG systems.</p>
+        
+        <div class="hero-cta">
+          <a href="#projects" class="btn-primary">
+            <span>View My Work</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="btn-outline">Get In Touch</a>
+        </div>
+
+        <!-- Hero Quick Stats Strip -->
+        <div class="hero-quick-stats">
+          <div class="hqs-item">
+            <svg class="hqs-icon" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.01 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0z"/></svg>
+            <a href="https://github.com/Balaji-1206" target="_blank" rel="noopener noreferrer">github.com/Balaji-1206</a>
+          </div>
+          <span class="hqs-sep">·</span>
+          <div class="hqs-item">
+            <svg class="hqs-icon" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 4.818 3.664 5.94 5.94 0 0 0 2.443-.29 5.98 5.98 0 0 0 2.026-1.211l3.907-3.909a1.377 1.377 0 0 0 0-1.947 1.378 1.378 0 0 0-1.948 0l-3.908 3.907a3.228 3.228 0 0 1-2.274.945 3.23 3.23 0 0 1-2.276-.945 3.23 3.23 0 0 1-.945-2.274 3.227 3.227 0 0 1 .945-2.275l7.747-7.748a1.375 1.375 0 0 0-.96-2.35z"/></svg>
+            <span>700+ LeetCode</span>
+          </div>
+          <span class="hqs-sep">·</span>
+          <div class="hqs-item">
+            <svg class="hqs-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <span>8.47 CGPA</span>
+          </div>
+          <span class="hqs-sep">·</span>
+          <div class="hqs-item">
+            <svg class="hqs-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <span>4+ AI Systems</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="hero-scroll" id="heroScrollBtn" aria-label="Scroll down to About section">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </a>
+    </section>
+
+    <!-- ── STATS COUNTER ROW ───────────────────────── -->
+    <div class="stats-wrapper">
+      <div class="stats-row">
+        <div class="stat-card spotlight-card">
+          <div class="stat-num" data-count="700" data-suffix="+">700+</div>
+          <div class="stat-label">LeetCode Problems Solved</div>
+        </div>
+        <div class="stat-card spotlight-card">
+          <div class="stat-num" data-count="8.47" data-decimals="2">8.47</div>
+          <div class="stat-label">B.E. CGPA (CIT Chennai)</div>
+        </div>
+        <div class="stat-card spotlight-card">
+          <div class="stat-num" data-count="2" data-suffix="x">2x</div>
+          <div class="stat-label">AI &amp; Full Stack Internships</div>
+        </div>
+        <div class="stat-card spotlight-card">
+          <div class="stat-num" data-count="4" data-suffix="+">4+</div>
+          <div class="stat-label">Production AI &amp; Full Stack Systems</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── INFINITE TECH STACK MARQUEE ────────────── -->
+    <div class="tech-marquee-wrapper" aria-hidden="true">
+      <div class="tech-marquee-track">
+        <div class="tech-marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="" width="20" height="20"> Python</div>
+        <div class="tech-marquee-item"><span class="marquee-dot">✦</span> Agentic RAG</div>
+        <div class="tech-marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="" width="20" height="20"> FastAPI</div>
+        <div class="tech-marquee-item"><span class="marquee-dot">✦</span> LangGraph</div>
+        <div class="tech-marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" width="20" height="20"> React.js</div>
+        <div class="tech-marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="" width="20" height="20"> TypeScript</div>
+        <div class="tech-marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="" width="20" height="20"> C++</div>
+        <div class="tech-marquee-item"><span class="marquee-dot">✦</span> FAISS &amp; BM25</div>
+        <div class="tech-marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="" width="20" height="20"> Next.js</div>
+        <div class="tech-marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="" width="20" height="20"> PostgreSQL</div>
+        <div class="tech-marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="" width="20" height="20"> Docker</div>
+        <div class="tech-marquee-item"><span class="marquee-dot">✦</span> MedGemma</div>
+
+        <!-- Duplicated for seamless loop -->
+        <div class="tech-marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="" width="20" height="20"> Python</div>
+        <div class="tech-marquee-item"><span class="marquee-dot">✦</span> Agentic RAG</div>
+        <div class="tech-marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="" width="20" height="20"> FastAPI</div>
+        <div class="tech-marquee-item"><span class="marquee-dot">✦</span> LangGraph</div>
+        <div class="tech-marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" width="20" height="20"> React.js</div>
+        <div class="tech-marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="" width="20" height="20"> TypeScript</div>
+        <div class="tech-marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="" width="20" height="20"> C++</div>
+        <div class="tech-marquee-item"><span class="marquee-dot">✦</span> FAISS &amp; BM25</div>
+        <div class="tech-marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="" width="20" height="20"> Next.js</div>
+        <div class="tech-marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="" width="20" height="20"> PostgreSQL</div>
+        <div class="tech-marquee-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="" width="20" height="20"> Docker</div>
+        <div class="tech-marquee-item"><span class="marquee-dot">✦</span> MedGemma</div>
+      </div>
+    </div>
+
+    <!-- ── ABOUT SECTION ───────────────────────────── -->
+    <section class="page-section about-section" id="about">
+      <div class="section-header">
+        <span class="section-tag">Background</span>
+        <h2>Engineering Scalable &amp; Intelligent Systems</h2>
+        <p class="section-sub">A glance into my journey, engineering philosophy, and technical focus.</p>
+      </div>
+
+      <div class="about-layout">
+        <div class="about-image-wrap">
+          <div class="about-img-frame shape-circle">
+            <img src="img/profile.jpg" alt="Balaji P" loading="lazy">
+          </div>
+        </div>
+        <div class="about-text">
+          <div class="bio-content">
+            <p>Third-year Computer Science and Engineering student at Chennai Institute of Technology (CGPA: 8.47 / 10) with hands-on experience in full-stack development, AI/ML, and backend engineering.</p>
+            <p>Skilled in Python, C++, React.js, FastAPI, LangGraph, and modern database architectures, with practical experience building production-grade web applications and evidence-based Agentic RAG systems.</p>
+            <p>Former Generative AI Intern at National Institute of Technology, Puducherry and Full Stack Developer Intern at WebDevSoft Online. Passionate about competitive programming and algorithmic problem solving with 700+ LeetCode problems solved.</p>
+          </div>
+          <div class="about-actions">
+            <a href="https://drive.google.com/file/d/1bT-WVeauHwH1AXol2_HcPIUWPlYi6SuO/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-primary">View / Download Resume ↓</a>
+            <a href="#experience" class="btn-outline">View Experience</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EXPERIENCE & ACHIEVEMENTS SECTION ───────── -->
+    <section class="page-section" id="experience">
+      <div class="section-header">
+        <span class="section-tag">Trajectory</span>
+        <h2>Experience &amp; Achievements</h2>
+        <p class="section-sub">Hands-on industry internships, education, and competitive milestones.</p>
+      </div>
+
+      <div class="experience-layout">
+        <!-- Left Column: Experience & Education -->
+        <div class="timeline-block">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+            Professional Experience
+          </h3>
+          
+          <!-- Vertical timeline axis -->
+          <div class="timeline-axis">
+            <div class="timeline-line"></div>
+
+            <div class="timeline-node">
+              <div class="tnode-dot"></div>
+              <div class="timeline-card spotlight-card">
+                <div class="timeline-header">
+                  <span class="timeline-role">Generative AI Intern</span>
+                  <span class="timeline-date">Apr 2026 – Jul 2026</span>
+                </div>
+                <div class="timeline-org">National Institute of Technology, Puducherry · Puducherry, India</div>
+                <ul class="timeline-desc">
+                  <li>Developed an oncology-focused <strong>Agentic RAG system</strong> for evidence-based clinical question answering using medical literature and guidelines.</li>
+                  <li>Engineered document processing, semantic chunking, hybrid retrieval (BM25 + FAISS), MRL embeddings, and MedGemma reranking pipelines.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-node">
+              <div class="tnode-dot"></div>
+              <div class="timeline-card spotlight-card">
+                <div class="timeline-header">
+                  <span class="timeline-role">Full Stack Developer Intern</span>
+                  <span class="timeline-date">Nov 2025 – Dec 2025</span>
+                </div>
+                <div class="timeline-org">WebDevSoft Online · Remote</div>
+                <ul class="timeline-desc">
+                  <li>Developed responsive full-stack web applications using React.js, Node.js, Express.js, and MongoDB.</li>
+                  <li>Built and integrated secure RESTful APIs for authentication, state management, and reusable UI components.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <h3 style="margin-top: 2.25rem;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            Education
+          </h3>
+          
+          <div class="timeline-axis">
+            <div class="timeline-line"></div>
+
+            <div class="timeline-node">
+              <div class="tnode-dot"></div>
+              <div class="timeline-card spotlight-card">
+                <div class="timeline-header">
+                  <span class="timeline-role">B.E. Computer Science &amp; Engineering</span>
+                  <span class="timeline-date">2024 – 2028</span>
+                </div>
+                <div class="timeline-org">Chennai Institute of Technology · CGPA: 8.47 / 10</div>
+                <p class="timeline-desc">Focus on Data Structures &amp; Algorithms, Operating Systems, DBMS, Networks, and Artificial Intelligence.</p>
+              </div>
+            </div>
+
+            <div class="timeline-node">
+              <div class="tnode-dot"></div>
+              <div class="timeline-card spotlight-card">
+                <div class="timeline-header">
+                  <span class="timeline-role">Higher Secondary School</span>
+                  <span class="timeline-date">2021 – 2024</span>
+                </div>
+                <div class="timeline-org">Sathya Saai Matriculation Higher Secondary School · Cutoff: 194.5 / 200</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Achievements & Certifications -->
+        <div class="timeline-block">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M8 21h8m-4-4v4M12 3l2.09 6.26H21l-5.47 3.97 2.09 6.26L12 15.5l-5.62 3.99 2.09-6.26L3 9.26h6.91z"/></svg>
+            Hackathons &amp; Achievements
+          </h3>
+
+          <div class="achievement-badge">
+            <span class="achievement-icon ach-yellow">⚡</span>
+            <div class="achievement-text"><strong>Finalist</strong> — Hacksagon Hackathon 2026</div>
+          </div>
+
+          <div class="achievement-badge">
+            <span class="achievement-icon ach-blue">🤖</span>
+            <div class="achievement-text"><strong>Finalist</strong> — Nasscomm Agentic AI Hackathon 2025</div>
+          </div>
+
+          <div class="achievement-badge">
+            <span class="achievement-icon ach-gold">🏅</span>
+            <div class="achievement-text"><strong>10th Place</strong> among 3,000 participants in Codathon at Chennai Institute of Technology</div>
+          </div>
+
+          <div class="achievement-badge">
+            <span class="achievement-icon ach-orange">🔥</span>
+            <div class="achievement-text"><strong>700+ Problems Solved</strong> on LeetCode across Data Structures &amp; Algorithms</div>
+          </div>
+
+          <h3 style="margin-top: 2.25rem;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            Verified Certifications
+          </h3>
+          
+          <div class="achievement-badge">
+            <span class="achievement-icon ach-orange">☁️</span>
+            <div class="achievement-text"><strong>AWS:</strong> Cloud Practitioner Essentials</div>
+          </div>
+
+          <div class="achievement-badge">
+            <span class="achievement-icon ach-green">⚙️</span>
+            <div class="achievement-text"><strong>ServiceNow:</strong> AI Foundation</div>
+          </div>
+
+          <div class="achievement-badge">
+            <span class="achievement-icon ach-blue">🌐</span>
+            <div class="achievement-text"><strong>Cisco Networking Academy:</strong> CCNA 1 — Introduction to Networks</div>
+          </div>
+
+          <div class="achievement-badge">
+            <span class="achievement-icon ach-yellow">📊</span>
+            <div class="achievement-text"><strong>NPTEL:</strong> Data Analytics with Python · Introduction to IoT</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SKILLS SECTION ──────────────────────────── -->
+    <section class="page-section skills-section" id="skills">
+      <div class="section-header">
+        <span class="section-tag">Capabilities</span>
+        <h2>Skills &amp; Technologies</h2>
+        <p class="section-sub">Core toolsets, frameworks, and engineering competencies.</p>
+      </div>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="Languages">Languages</button>
+        <button class="filter-btn" data-filter="Web &amp; Mobile">Web &amp; Mobile</button>
+        <button class="filter-btn" data-filter="AI &amp; ML">AI &amp; ML</button>
+        <button class="filter-btn" data-filter="Databases &amp; Tools">Databases &amp; Tools</button>
+      </div>
+
+      <div class="skills-grid" id="skillsGrid">
+        <!-- Languages -->
+        <div class="skill-card" data-category="Languages">
+          <div class="skill-img-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" loading="lazy">
+          </div>
+          <div class="skill-info">
+            <span class="skill-category">Languages</span>
+            <h3>Python</h3>
+            <p>Backend APIs, Agentic AI, RAG pipelines, data processing, and scripting</p>
+            <div class="skill-bar"><div class="skill-bar-fill" data-pct="95"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-category="Languages">
+          <div class="skill-img-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" loading="lazy">
+          </div>
+          <div class="skill-info">
+            <span class="skill-category">Languages</span>
+            <h3>C++</h3>
+            <p>Competitive programming, Data Structures &amp; Algorithms, performance computing</p>
+            <div class="skill-bar"><div class="skill-bar-fill" data-pct="88"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-category="Languages">
+          <div class="skill-img-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" loading="lazy">
+          </div>
+          <div class="skill-info">
+            <span class="skill-category">Languages</span>
+            <h3>JavaScript</h3>
+            <p>Modern ES6+, asynchronous programming, interactive web development</p>
+            <div class="skill-bar"><div class="skill-bar-fill" data-pct="85"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-category="Languages">
+          <div class="skill-img-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" loading="lazy">
+          </div>
+          <div class="skill-info">
+            <span class="skill-category">Languages</span>
+            <h3>TypeScript</h3>
+            <p>Type-safe frontend and full-stack application development</p>
+          </div>
+        </div>
+
+        <div class="skill-card" data-category="Languages">
+          <div class="skill-img-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" loading="lazy">
+          </div>
+          <div class="skill-info">
+            <span class="skill-category">Languages</span>
+            <h3>Java</h3>
+            <p>Object-Oriented Programming, enterprise concepts, core computer science</p>
+          </div>
+        </div>
+
+        <div class="skill-card" data-category="Languages">
+          <div class="skill-img-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" loading="lazy">
+          </div>
+          <div class="skill-info">
+            <span class="skill-category">Languages</span>
+            <h3>C</h3>
+            <p>Low-level systems programming, memory management, foundational computing</p>
+          </div>
+        </div>
+
+        <!-- Web & Mobile -->
+        <div class="skill-card" data-category="Web &amp; Mobile">
+          <div class="skill-img-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI" loading="lazy">
+          </div>
+          <div class="skill-info">
+            <span class="skill-category">Web &amp; Mobile</span>
+            <h3>FastAPI</h3>
+            <p>High-throughput asynchronous REST APIs, Pydantic validation, and AI integration</p>
+            <div class="skill-bar"><div class="skill-bar-fill" data-pct="92"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-category="Web &amp; Mobile">
+          <div class="skill-img-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React.js" loading="lazy">
+          </div>
+          <div class="skill-info">
+            <span class="skill-category">Web &amp; Mobile</span>
+            <h3>React.js</h3>
+            <p>Component architecture, hooks, responsive UI design, and state management</p>
+            <div class="skill-bar"><div class="skill-bar-fill" data-pct="87"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-card" data-category="Web &amp; Mobile">
+          <div class="skill-img-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" loading="lazy">
+          </div>
+          <div class="skill-info">
+            <span class="skill-category">Web &amp; Mobile</span>
+            <h3>Next.js</h3>
+            <p>Server-Side Rendering, API routes, and optimized full-stack web applications</p>
+          </div>
+        </div>
+
+        <div class="skill-card" data-category="Web &amp; Mobile">
+          <div class="skill-img-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js &amp; Express" loading="lazy">
+          </div>
+          <div class="skill-info">
+            <span class="skill-category">Web &amp; Mobile</span>
+            <h3>Node.js &amp; Express</h3>
+            <p>Scalable backend services, middleware, authentication, and REST APIs</p>
+          </div>
+        </div>
+
+        <div class="skill-card" data-category="Web &amp; Mobile">
+          <div class="skill-img-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native" loading="lazy">
+          </div>
+          <div class="skill-info">
+            <span class="skill-category">Web &amp; Mobile</span>
+            <h3>React Native</h3>
+            <p>Cross-platform mobile application development for iOS and Android</p>
+          </div>
+        </div>
+
+        <div class="skill-card" data-category="Web &amp; Mobile">
+          <div class="skill-img-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" loading="lazy">
+          </div>
+          <div class="skill-info">
+            <span class="skill-category">Web &amp; Mobile</span>
+            <h3>Flutter</h3>
+            <p>Cross-platform mobile UI development and client-side applications</p>
+          </div>
+        </div>
+
+        <!-- AI & ML -->
+        <div class="skill-card" data-category="AI &amp; ML">
+          <div class="skill-img-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="LangChain &amp; LangGraph" loading="lazy">
+          </div>
+          <div class="skill-info">
+            <span class="skill-category">AI &amp; ML</span>
+            <h3>LangChain &amp; LangGraph</h3>
+            <p>Multi-agent workflows, self-healing agent architectures, and LLM orchestration</p>
+            <div class="skill-bar"><div class="skill-bar-fill" data-pct="90"></div></div>
+            <span class="cert-badge">🏅 Nasscomm AI Finalist</span>
+          </div>
+        </div>
+
+        <div class="skill-card" data-category="AI &amp; ML">
+          <div class="skill-img-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Agentic RAG &amp; FAISS" loading="lazy">
+          </div>
+          <div class="skill-info">
+            <span class="skill-category">AI &amp; ML</span>
+            <h3>Agentic RAG &amp; FAISS</h3>
+            <p>Semantic chunking, hybrid retrieval (BM25 + FAISS), MRL embeddings, and reranking</p>
+          </div>
+        </div>
+
+        <div class="skill-card" data-category="AI &amp; ML">
+          <div class="skill-info-header"></div>
+          <div class="skill-img-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="LLMs &amp; MedGemma" loading="lazy">
+          </div>
+          <div class="skill-info">
+            <span class="skill-category">AI &amp; ML</span>
+            <h3>LLMs &amp; MedGemma</h3>
+            <p>Domain-specific LLM integration, clinical question answering, prompt engineering</p>
+          </div>
+        </div>
+
+        <div class="skill-card" data-category="AI &amp; ML">
+          <div class="skill-img-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow &amp; Scikit-learn" loading="lazy">
+          </div>
+          <div class="skill-info">
+            <span class="skill-category">AI &amp; ML</span>
+            <h3>TensorFlow &amp; Scikit-learn</h3>
+            <p>Machine learning modeling, forecasting (LightGBM), NumPy, and Pandas</p>
+          </div>
+        </div>
+
+        <!-- Databases & Tools -->
+        <div class="skill-card" data-category="Databases &amp; Tools">
+          <div class="skill-img-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" loading="lazy">
+          </div>
+          <div class="skill-info">
+            <span class="skill-category">Databases &amp; Tools</span>
+            <h3>PostgreSQL</h3>
+            <p>Relational database design, query optimization, indexing, and ACID transactions</p>
+          </div>
+        </div>
+
+        <div class="skill-card" data-category="Databases &amp; Tools">
+          <div class="skill-img-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" loading="lazy">
+          </div>
+          <div class="skill-info">
+            <span class="skill-category">Databases &amp; Tools</span>
+            <h3>MongoDB</h3>
+            <p>NoSQL document storage, aggregation pipelines, and schema modeling</p>
+          </div>
+        </div>
+
+        <div class="skill-card" data-category="Databases &amp; Tools">
+          <div class="skill-img-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git &amp; GitHub" loading="lazy">
+          </div>
+          <div class="skill-info">
+            <span class="skill-category">Databases &amp; Tools</span>
+            <h3>Git &amp; GitHub</h3>
+            <p>Version control, collaborative workflows, CI/CD, and repository management</p>
+          </div>
+        </div>
+
+        <div class="skill-card" data-category="Databases &amp; Tools">
+          <div class="skill-img-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux &amp; Docker" loading="lazy">
+          </div>
+          <div class="skill-info">
+            <span class="skill-category">Databases &amp; Tools</span>
+            <h3>Linux &amp; Docker</h3>
+            <p>Containerization, bash scripting, server deployment, and operating systems</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FEATURED PROJECTS SECTION ───────────────── -->
+    <section class="page-section projects-section" id="projects">
+      <div class="section-header">
+        <span class="section-tag">Portfolio</span>
+        <h2>Featured Projects</h2>
+        <p class="section-sub">Highlighting selected applications, Agentic AI systems, and platforms I have engineered.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <article class="project-card spotlight-card">
+          <div class="project-img-wrap">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80" alt="LeadForge AI" loading="lazy">
+            <div class="project-badges">
+              <span class="featured-badge">Featured</span>
+              <span class="status-chip"><span class="status-dot"></span>Multi-Agent System</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>LeadForge AI — Autonomous Web Intelligence &amp; B2B Lead Platform</h3>
+            <p>Full-stack web intelligence and lead generation platform for automated B2B data extraction. Engineered a 6-node LangGraph multi-agent workflow with self-healing mechanisms to dynamically diagnose and repair broken scraping selectors through canary verification.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">Playwright</span>
+              <span class="tech-tag">Next.js</span>
+              <span class="tech-tag">LangGraph</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Balaji-1206" target="_blank" rel="noopener noreferrer" class="proj-link proj-github">
+                <span>GitHub Repo</span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.01 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0z"/></svg>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card spotlight-card">
+          <div class="project-img-wrap">
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&auto=format&fit=crop&q=80" alt="LegalAce" loading="lazy">
+            <div class="project-badges">
+              <span class="featured-badge">Featured</span>
+              <span class="status-chip"><span class="status-dot"></span>Agentic RAG</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>LegalAce — AI-Powered Legal Rights Companion</h3>
+            <p>AI-powered legal rights companion for Indian citizens built with Agentic AI and RAG across a 235-section Indian legal corpus. Features legal chat, situation-based guidance, document X-Ray analysis, complaint drafting, and deadline monitoring.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">React Native</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">Agentic AI</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Balaji-1206" target="_blank" rel="noopener noreferrer" class="proj-link proj-github">
+                <span>GitHub Repo</span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.01 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0z"/></svg>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card spotlight-card">
+          <div class="project-img-wrap">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80" alt="SmartCare" loading="lazy">
+            <div class="project-badges">
+              <span class="featured-badge">Featured</span>
+              <span class="status-chip"><span class="status-dot"></span>ML Forecasting</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>SmartCare — AI-Powered Rural Healthcare Mobile App</h3>
+            <p>Mobile application for rural healthcare centers to monitor patient demand, predicted syndromes, weather trends, and critical resource requirements. Integrates LightGBM forecasting with a FastAPI backend to predict daily patient volume and generate traffic-light alerts for healthcare staff.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">React Native</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">LightGBM</span>
+              <span class="tech-tag">Python</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Balaji-1206" target="_blank" rel="noopener noreferrer" class="proj-link proj-github">
+                <span>GitHub Repo</span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.01 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0z"/></svg>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card spotlight-card">
+          <div class="project-img-wrap">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&auto=format&fit=crop&q=80" alt="Oncology Agentic RAG System" loading="lazy">
+            <div class="project-badges">
+              <span class="featured-badge">Featured</span>
+              <span class="status-chip"><span class="status-dot"></span>Clinical Decision Support</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3>Oncology Agentic RAG System</h3>
+            <p>Oncology-focused Agentic RAG system for evidence-based medical question answering using medical literature and clinical guidelines. Implemented hybrid retrieval using 512-dimensional MRL embeddings, FAISS, BM25, and Cross-Encoder reranking, with MedGemma for grounded answer generation.</p>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">LangChain</span>
+              <span class="tech-tag">FAISS</span>
+              <span class="tech-tag">BM25</span>
+              <span class="tech-tag">MRL</span>
+              <span class="tech-tag">MedGemma</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Balaji-1206" target="_blank" rel="noopener noreferrer" class="proj-link proj-github">
+                <span>GitHub Repo</span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.01 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0z"/></svg>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ── CONTACT SECTION ─────────────────────────── -->
+    <section class="page-section contact-section" id="contact">
+      <div class="section-header">
+        <span class="section-tag">Reach Out</span>
+        <h2>Let's Connect</h2>
+        <p class="section-sub">Interested in collaborating, discussing engineering roles, or exploring AI systems? Feel free to reach out!</p>
+      </div>
+
+      <div class="contact-layout">
+        <!-- Ambient contact CTA card -->
+        <div class="contact-cta-card">
+          <div class="contact-cta-glow"></div>
+          <div class="contact-cta-inner">
+            <div class="contact-cards">
+              <!-- Email -->
+              <div class="contact-card copyable-card" data-copy="balajip.cse2024@citchennai.net" title="Click to copy email">
+                <div class="contact-icon-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div class="contact-detail">
+                  <span class="contact-label">Email <span class="copy-hint">(Click to copy)</span></span>
+                  <a href="mailto:balajip.cse2024@citchennai.net" class="contact-value link-value" onclick="event.stopPropagation();">balajip.cse2024@citchennai.net</a>
+                </div>
+                <div class="copy-action-svg" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                </div>
+              </div>
+
+              <!-- Phone -->
+              <div class="contact-card copyable-card" data-copy="+91 9655018485" title="Click to copy phone">
+                <div class="contact-icon-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.91-.9a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div class="contact-detail">
+                  <span class="contact-label">Phone <span class="copy-hint">(Click to copy)</span></span>
+                  <a href="tel:+919655018485" class="contact-value link-value" onclick="event.stopPropagation();">+91 9655018485</a>
+                </div>
+                <div class="copy-action-svg" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                </div>
+              </div>
+
+              <!-- Location -->
+              <div class="contact-card">
+                <div class="contact-icon-wrap">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div class="contact-detail">
+                  <span class="contact-label">Location</span>
+                  <span class="contact-value">Chennai, Tamil Nadu, India</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-links">
+              <a href="https://github.com/Balaji-1206" target="_blank" rel="noopener noreferrer" class="social-btn social-github">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.01 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0z"/></svg>
+                GitHub
+              </a>
+              <a href="https://linkedin.com/in/balaji1206" target="_blank" rel="noopener noreferrer" class="social-btn social-linkedin">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM3.56 20.45h3.56V9H3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.27V1.73C24 .77 23.21 0 22.22 0z"/></svg>
+                LinkedIn
+              </a>
+              <a href="https://leetcode.com/balaji_1206" target="_blank" rel="noopener noreferrer" class="social-btn social-website" title="LeetCode Profile (700+ Solved)">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 4.818 3.664 5.94 5.94 0 0 0 2.443-.29 5.98 5.98 0 0 0 2.026-1.211l3.907-3.909a1.377 1.377 0 0 0 0-1.947 1.378 1.378 0 0 0-1.948 0l-3.908 3.907a3.228 3.228 0 0 1-2.274.945 3.23 3.23 0 0 1-2.276-.945 3.23 3.23 0 0 1-.945-2.274 3.227 3.227 0 0 1 .945-2.275l7.747-7.748a1.375 1.375 0 0 0-.96-2.35zM16.14 9.07a1.377 1.377 0 0 0-.974.405l-2.023 2.025a1.378 1.378 0 0 0 1.948 1.948l2.024-2.025a1.378 1.378 0 0 0-.975-2.353z"/></svg>
+                LeetCode
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── FOOTER ──────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <!-- Brand column -->
+      <div class="footer-brand">
+        <a href="#home" class="footer-logo">BALAJI<span>.</span></a>
+        <p class="footer-tagline">Software Developer &amp; AI/ML Engineer building high-performance systems.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/Balaji-1206" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="footer-social-icon" title="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.01 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/balaji1206" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="footer-social-icon" title="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM3.56 20.45h3.56V9H3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.27V1.73C24 .77 23.21 0 22.22 0z"/></svg>
+          </a>
+          <a href="https://leetcode.com/balaji_1206" target="_blank" rel="noopener noreferrer" aria-label="LeetCode" class="footer-social-icon" title="LeetCode (700+ Problems Solved)">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 4.818 3.664 5.94 5.94 0 0 0 2.443-.29 5.98 5.98 0 0 0 2.026-1.211l3.907-3.909a1.377 1.377 0 0 0 0-1.947 1.378 1.378 0 0 0-1.948 0l-3.908 3.907a3.228 3.228 0 0 1-2.274.945 3.23 3.23 0 0 1-2.276-.945 3.23 3.23 0 0 1-.945-2.274 3.227 3.227 0 0 1 .945-2.275l7.747-7.748a1.375 1.375 0 0 0-.96-2.35zM16.14 9.07a1.377 1.377 0 0 0-.974.405l-2.023 2.025a1.378 1.378 0 0 0 1.948 1.948l2.024-2.025a1.378 1.378 0 0 0-.975-2.353z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Navigation column -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact column -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">Get In Touch</h4>
+        <ul class="footer-contact-list">
+          <li>
+            <span class="footer-contact-icon">✉</span>
+            <a href="mailto:balajip.cse2024@citchennai.net">balajip.cse2024@citchennai.net</a>
+          </li>
+          <li>
+            <span class="footer-contact-icon">📞</span>
+            <a href="tel:+919655018485">+91 9655018485</a>
+          </li>
+          <li>
+            <span class="footer-contact-icon">📍</span>
+            <span>Chennai, India</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- CTA column -->
+      <div class="footer-col">
+        <h4 class="footer-col-title">Let's Work Together</h4>
+        <p class="footer-cta-text">Open to software engineering, full-stack, and AI/ML opportunities.</p>
+        <a href="#contact" class="footer-cta-btn">Get In Touch →</a>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <span>© 2026 Balaji P. All rights reserved.</span>
+        <span class="footer-divider">·</span>
+        <span>Crafted with Clean Code &amp; Modern Web Standards</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Floating Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Core JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+</html>

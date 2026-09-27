@@ -13,3 +13,4 @@ env/
 .pytest_cache/
 local_portfolio.db
 scratch/
+node_modules/
